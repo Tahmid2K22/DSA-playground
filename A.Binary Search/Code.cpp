@@ -1,3 +1,5 @@
+//Author : Tahmid Hossain Chowdhury Mahin 
+//Problem statement :https://codeforces.com/edu/course/2/lesson/6/1/practice/contest/283911/problem/A
 #include<iostream>
 using namespace std;
 
