@@ -33,10 +33,7 @@ void insertion(CT_marks *head,int pos,int r,int m){
         delete n;
         return;
     }
-    if(head==nullptr){
-        head=n;
-        return;
-    }
+
     if(pos==0){
         n->next=head;
         head=n;
