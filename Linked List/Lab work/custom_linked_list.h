@@ -159,6 +159,19 @@ public:
         return total_size;
     }
 
+    void reverse(){
+        Node<T> *prev=nullptr;
+        Node<T> *cur=head;
+        Node<T> *tmp;
+        while(cur!=nullptr){
+            tmp=cur->next;
+            cur->next=prev;
+            prev=cur;
+            cur=tmp;
+        }
+        head=prev;
+    }
+
     void traverse(){
         Node<T> *cur=head;
         while(cur!=nullptr){
@@ -166,6 +179,44 @@ public:
             cur=cur->next;
         }
         cout<<'\n';
+    }
+
+    linked_list<T> operator +(const linked_list<T>& l) {
+    Node<T>* cur1 = head;      // Pointer to traverse the first list
+    Node<T>* cur2 = l.head;    // Pointer to traverse the second list
+    linked_list<T> result;     // Result linked list to store the sum
+    T carry = 0;               // Variable to store carry over from the previous addition
+
+    // Traverse both lists and add digits
+    while (cur1 != nullptr || cur2 != nullptr || carry != 0) {
+        T sum = carry; // Start with carry from the previous addition
+
+        // Add the digit from the first list if available
+        if (cur1 != nullptr) {
+            sum += cur1->data;
+            cur1 = cur1->next;
+        }
+
+        // Add the digit from the second list if available
+        if (cur2 != nullptr) {
+            sum += cur2->data;
+            cur2 = cur2->next;
+        }
+
+        // Store the last digit of sum in the result (sum % 10)
+        result.insertion(result.size(), sum % 10);
+
+        // Update carry for the next iteration (sum / 10)
+        carry = sum / 10;
+    }
+
+    return result;
+}
+
+
+    
+    Node<T>* getHead() const {
+        return head;
     }
 
     ~linked_list() {
