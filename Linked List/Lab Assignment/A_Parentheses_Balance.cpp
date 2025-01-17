@@ -12,8 +12,7 @@ public:
 
 void solve(){
     string s;
-    // getline(cin, s);
-    cin >> s;
+    getline(cin, s);
     Node *head=nullptr,*n_node;
     for(auto it:s){
         if(it=='(' || it=='['){
@@ -51,7 +50,7 @@ void solve(){
 int main(){
     int t;
     cin >> t;
-    // cin.ignore();
+    cin.ignore();
     for(int it=1;it<=t;it++) {
         //cout << "Case " << it << ":\n";
         solve();
